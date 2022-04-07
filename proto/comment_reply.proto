@@ -1,0 +1,179 @@
+syntax = "proto3";
+
+package commentapi;
+
+service CommentService {
+    rpc CreateComment (CreateCommentRequest) returns (CreateCommentResponse);
+    rpc GetComment (GetCommentRequest) returns (GetCommentResponse);
+    rpc DeleteComment (DeleteCommentRequest) returns (DeleteCommentResponse);
+    rpc UpdateComment (UpdateCommentRequest) returns (UpdateCommentResponse);
+    rpc CreateReply (CreateReplyRequest) returns (CreateReplyResponse);
+    rpc GetReply (GetReplyRequest) returns (GetReplyResponse);
+    rpc DeleteReply (DeleteReplyRequest) returns (DeleteReplyResponse);
+    rpc UpdateReply (UpdateReplyRequest) returns (UpdateReplyResponse);
+}
+
+message UpdateReplyRequest{
+    
+    string reply = 1;
+    bool isdeletedbyadmin = 2;
+    string userid = 3;
+    string id = 4;
+    string postid = 5;
+    int32 status = 6;
+    int32 likecount = 7;
+    int32 userlikes = 8;
+    string commentid = 9;
+    string media_url = 10;
+
+
+}
+
+message UpdateReplyResponse{
+    bool status = 1;
+}
+
+message DeleteReplyResponse{
+    bool status = 1;
+}
+
+message DeleteReplyRequest{
+    string id = 1;
+}
+
+
+
+message CreateReplyRequest {
+
+    string reply = 1;
+    bool isdeletedbyadmin = 2;
+    string userid = 3;
+    string postid = 4;
+    int32 status = 5;
+    int32 likecount = 6;
+    int32 userlikes = 7;
+    string commentid = 8;
+    string media_url = 9;
+
+}
+
+message CreateReplyResponse {
+    string reply = 1;
+    bool isdeletedbyadmin = 2;
+    string userid = 3;
+    string postid = 4;
+    int32 status = 5;
+    int32 likecount = 6;
+    int32 userlikes = 7;
+    string commentid = 8;
+    string media_url = 9;
+}
+
+
+
+message GetReplyRequest{
+    string commentid = 1;
+}
+
+
+message GetReplyResponse {
+    repeated Replies replies = 1;
+}
+
+message Replies {
+    string reply = 1;
+    bool isdeletedbyadmin = 2;
+    string userid = 3;
+    string id = 4;
+    string postid = 5;
+    int32 status = 6;
+    int32 likecount = 7;
+    int32 userlikes = 8;
+    string commentid = 9;
+    Media media_url = 10;
+    string date = 11;
+
+}
+
+
+message UpdateCommentRequest{
+    string comment = 1;
+    bool isdeletedbyadmin = 2;
+    string userid = 3;
+    string postid = 4;
+    int32 status = 5;
+    int32 likecount = 6;
+    int32 userlikes = 7;
+    string id = 8;
+    string media_url = 9;
+
+}
+
+message UpdateCommentResponse{
+    bool status = 1;
+}
+
+message DeleteCommentResponse{
+    bool status = 1;
+}
+
+message DeleteCommentRequest{
+    string id = 1;
+}
+
+
+
+message CreateCommentRequest {
+
+    string comment = 1;
+    bool isdeletedbyadmin = 2;
+    string userid = 3;
+    string postid = 4;
+    int32 status = 5;
+    int32 likecount = 6;
+    int32 userlikes = 7;
+    string id = 8;
+    string media_url = 9;
+    
+
+}
+
+message CreateCommentResponse {
+    string comment = 1;
+    bool isdeletedbyadmin = 2;
+    string userid = 3;
+    string postid = 4;
+    int32 status = 5;
+    int32 likecount = 6;
+    int32 userlikes = 7;
+    string id = 8;
+    string media_url = 9;
+    
+}
+
+message GetCommentRequest{
+    string postid = 1;
+}
+
+
+message GetCommentResponse {
+    repeated Comment comments = 1;
+}
+
+message Comment {
+    string comments = 1;
+    bool isdeletedbyadmin = 2;
+    string userid = 3;
+    string postid = 4;
+    int32 status = 5;
+    int32 likecount = 6;
+    int32 userlikes = 7;
+    string id = 8;
+    Media medias = 10;
+    string date = 11;
+
+}
+message Media {
+    string media_url = 1;
+
+}
